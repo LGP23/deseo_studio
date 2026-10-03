@@ -1,0 +1,7 @@
+name = "deseo-studio"
+compatibility_date = "2026-10-03"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
