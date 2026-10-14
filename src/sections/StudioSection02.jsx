@@ -35,18 +35,25 @@ const AnimatedBlock = ({ word }) => (
       overflow: 'hidden'
     }}
   >
-    <AnimatePresence mode="popLayout">
+    <AnimatePresence mode="wait">
       <motion.div
         key={word}
         variants={variants}
         initial="initial"
         animate="animate"
         exit="exit"
-        style={{ position: 'absolute', whiteSpace: 'nowrap' }}
+        style={{ 
+          position: 'absolute', 
+          whiteSpace: 'nowrap',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%'
+        }}
       >
         <span 
           style={{ 
-            fontSize: 'clamp(1.5rem, 4vw, 3rem)', 
+            fontSize: 'clamp(1.1rem, 3.5vw, 3rem)', 
             fontFamily: 'var(--font-title)', 
             fontWeight: 700,
             letterSpacing: '0.02em',
@@ -62,7 +69,6 @@ const AnimatedBlock = ({ word }) => (
 
 const StudioSection02 = () => {
   const [index, setIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   // New refs for photobooth interaction
@@ -71,23 +77,11 @@ const StudioSection02 = () => {
   const finalTextRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-    if (!isVisible) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % wordPairs.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, [isVisible]);
+  }, []);
 
   // Photobooth GSAP ScrollTrigger
   useEffect(() => {
@@ -148,7 +142,7 @@ const StudioSection02 = () => {
           <p style={{
             fontFamily: 'var(--font-title)',
             fontWeight: 800,
-            fontSize: 'clamp(5rem, 11vw, 11rem)',
+            fontSize: 'clamp(2.2rem, 11vw, 11rem)',
             lineHeight: 0.9,
             margin: '0 0 1.5rem -0.05em',
             textTransform: 'uppercase',
@@ -196,7 +190,7 @@ const StudioSection02 = () => {
           <p style={{
             fontFamily: 'var(--font-title)',
             fontWeight: 800,
-            fontSize: 'clamp(5rem, 11vw, 11rem)',
+            fontSize: 'clamp(2.2rem, 11vw, 11rem)',
             lineHeight: 0.9,
             margin: '1.5rem -0.05em 0 auto',
             textTransform: 'uppercase',
