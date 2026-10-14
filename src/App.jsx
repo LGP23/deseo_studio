@@ -47,7 +47,7 @@ function App() {
         <Hero />
         <Philosophy />
         <Services />
-        <Archive />
+        {/* <Archive /> */}
         <DesireContact />
       </main>
       <Footer />
