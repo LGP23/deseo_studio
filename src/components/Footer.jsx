@@ -25,7 +25,6 @@ const Footer = () => {
           <h4 style={{ fontSize: '0.85rem', opacity: 0.5, letterSpacing: '0.05em' }}>MENÚ</h4>
           <a href="/#filosofia" className="footer-link">Filosofía</a>
           <a href="/#servicios" className="footer-link">Servicios</a>
-          <a href="/#archivo" className="footer-link">Archivo</a>
           <a href="/estudio" className="footer-link">Studio</a>
           <a href="/#contacto" className="footer-link">Quiero Deseo</a>
         </div>
@@ -35,6 +34,7 @@ const Footer = () => {
           <h4 style={{ fontSize: '0.85rem', opacity: 0.5, letterSpacing: '0.05em' }}>CONTACTO</h4>
           
           <a href="mailto:info@deseostudio.es" className="footer-link">info@deseostudio.es</a>
+          <a href="tel:+34648830530" className="footer-link">+34 648 830 530</a>
           
           <div style={{ marginTop: 'var(--space-sm)' }}>
             <a 

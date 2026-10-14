@@ -145,6 +145,7 @@ const Navigation = () => {
 
       {/* ── Right: navigation links (unchanged) ── */}
       <div
+        className="nav-links"
         style={{
           marginLeft   : 'auto',
           padding      : 'var(--space-sm) var(--padding-x)',
@@ -158,10 +159,18 @@ const Navigation = () => {
       >
         <a href="/#filosofia" style={{ color: '#222323', textDecoration: 'none' }}>Filosofía</a>
         <a href="/#servicios" style={{ color: '#222323', textDecoration: 'none' }}>Servicios</a>
-        <a href="/#archivo"   style={{ color: '#222323', textDecoration: 'none' }}>Archivo</a>
         <a href="/estudio"    style={{ color: '#222323', textDecoration: 'none' }}>Studio</a>
         <a href="/#contacto"  style={{ color: '#222323', textDecoration: 'none' }}>Quiero Deseo</a>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-links {
+            gap: 0.65rem !important;
+            font-size: 0.72rem !important;
+          }
+        }
+      `}</style>
     </nav>
   );
 };
